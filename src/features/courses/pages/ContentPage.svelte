@@ -85,7 +85,7 @@
 
         <div class="p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <h1 class="text-xl font-extrabold text-slate-900 flex items-center gap-2">
-            <Video size={22} class="text-rose-500" />
+            <Video size={22} class="text-rose-700" />
             {content.title}
           </h1>
           {#if canLearn}
@@ -122,7 +122,7 @@
                 class={`flex items-center gap-2 px-3 py-2 rounded-xl text-sm transition-colors ${String(item.id) === String(contentId) ? "bg-indigo-50 text-indigo-700 font-semibold" : "text-slate-600 hover:bg-slate-50"}`}
               >
                 {#if item.my_status_finished}
-                  <CircleCheck size={16} class="text-emerald-500 shrink-0" />
+                  <CircleCheck size={16} class="text-emerald-700 shrink-0" />
                 {:else}
                   <Circle size={16} class="text-slate-300 shrink-0" />
                 {/if}

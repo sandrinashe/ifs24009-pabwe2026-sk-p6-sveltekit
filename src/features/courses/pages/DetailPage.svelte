@@ -239,13 +239,13 @@
       {/if}
 
       {#if (course.contents ?? []).length === 0}
-        <p data-testid="no-contents" class="text-sm italic text-slate-400">Belum ada konten.</p>
+        <p data-testid="no-contents" class="text-sm italic text-slate-500">Belum ada konten.</p>
       {:else}
         <ul class="divide-y divide-slate-100">
           {#each course.contents as content (content.id)}
             <li class="flex items-center justify-between gap-3 py-3" data-testid={`content-item-${content.id}`}>
               <div class="flex items-center gap-3 min-w-0">
-                <Video size={18} class="text-rose-500 shrink-0" />
+                <Video size={18} class="text-rose-700 shrink-0" />
                 {#if canOpen}
                   <a
                     href={`/courses/${course.id}/contents/${content.id}`}
@@ -259,10 +259,10 @@
                     {content.title}
                   </a>
                 {:else}
-                  <span class="text-sm font-medium text-slate-400 truncate">{content.title}</span>
+                  <span class="text-sm font-medium text-slate-500 truncate">{content.title}</span>
                 {/if}
                 {#if content.my_status_finished}
-                  <CircleCheck size={16} class="text-emerald-500 shrink-0" />
+                  <CircleCheck size={16} class="text-emerald-700 shrink-0" />
                 {/if}
               </div>
               {#if isOwner}
@@ -271,7 +271,7 @@
                     type="button"
                     data-testid={`edit-content-${content.id}`}
                     onclick={() => openEditContent(content)}
-                    class="p-1.5 text-slate-600 hover:text-amber-600 hover:bg-amber-50 rounded-lg transition-colors"
+                    class="p-1.5 text-slate-600 hover:text-amber-700 hover:bg-amber-50 rounded-lg transition-colors"
                     title="Ubah Konten"
                   >
                     <PenLine size={16} />
@@ -331,14 +331,14 @@
       {/if}
 
       {#if (course.ratings ?? []).length === 0}
-        <p data-testid="no-ratings" class="text-sm italic text-slate-400">Belum ada rating.</p>
+        <p data-testid="no-ratings" class="text-sm italic text-slate-500">Belum ada rating.</p>
       {:else}
         <ul class="space-y-3">
           {#each course.ratings as rating, i (i)}
             <li class="p-4 rounded-2xl border border-slate-100" data-testid="rating-item">
               <p class="text-sm font-semibold text-slate-800 flex items-center gap-2">
                 {rating.name}
-                <span class="inline-flex items-center gap-1 text-amber-600 text-xs"><Star size={14} /> {rating.ratings}</span>
+                <span class="inline-flex items-center gap-1 text-amber-700 text-xs"><Star size={14} /> {rating.ratings}</span>
               </p>
               <p class="text-sm text-slate-600 mt-1">{rating.comment}</p>
             </li>

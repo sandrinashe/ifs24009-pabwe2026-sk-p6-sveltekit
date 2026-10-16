@@ -9,6 +9,22 @@
 
   let editorContainer: HTMLElement;
   let editorInstance: any = null;
+  let observer: MutationObserver = null as any;
+
+  // Toast UI memakai atribut "aria-role" yang tidak valid dan textarea tanpa label.
+  // Rapikan agar lolos pemeriksaan aksesibilitas (axe).
+  function fixEditorA11y(root: HTMLElement) {
+    root.querySelectorAll("[aria-role]").forEach((el) => {
+      el.removeAttribute("aria-role");
+      el.removeAttribute("aria-selected");
+    });
+    root.querySelectorAll("textarea:not([aria-label])").forEach((el) => {
+      el.setAttribute("aria-label", "Editor Markdown");
+    });
+    root.querySelectorAll("button:not([aria-label]):not([title])").forEach((el) => {
+      el.setAttribute("aria-label", "Alat editor lainnya");
+    });
+  }
 
   onMount(async () => {
     try {
@@ -27,6 +43,14 @@
             value = editorInstance.getMarkdown();
           },
         },
+      });
+      fixEditorA11y(editorContainer);
+      observer = new MutationObserver(() => fixEditorA11y(editorContainer));
+      observer.observe(editorContainer, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        attributeFilter: ["aria-role"],
       });
     } catch {
       editorInstance = null;
@@ -47,6 +71,7 @@
 
   onDestroy(() => {
     if (editorInstance) {
+      observer.disconnect();
       editorInstance.destroy();
       editorInstance = null;
     }
@@ -95,6 +120,13 @@
   :global(.toastui-editor-wrapper .toastui-editor-toolbar) {
     background-color: #f8fafc;
     border-bottom: 1px solid #f1f5f9;
+  }
+  :global(.toastui-editor-wrapper .toastui-editor-tabs .tab-item),
+  :global(.toastui-editor-wrapper .toastui-editor-mode-switch .tab-item) {
+    color: #475569;
+  }
+  :global(.toastui-editor-wrapper .placeholder) {
+    color: #64748b !important;
   }
   :global(.toastui-editor-wrapper .toastui-editor-contents) {
     font-family: inherit;

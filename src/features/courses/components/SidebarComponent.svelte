@@ -77,7 +77,7 @@
     <div class="flex flex-col h-full justify-between">
       <div class="space-y-6">
         <div>
-          <p class="px-3 text-xs font-bold uppercase tracking-wider text-slate-400">
+          <p class="px-3 text-xs font-bold uppercase tracking-wider text-slate-500">
             Menu Utama
           </p>
           <nav class="mt-3 space-y-1">
@@ -95,7 +95,7 @@
                 <div class="flex items-center gap-3">
                   <Icon
                     size={20}
-                    class={active ? 'text-white' : 'text-slate-400 group-hover:text-slate-600'}
+                    class={active ? 'text-white' : 'text-slate-500 group-hover:text-slate-600'}
                   />
                   <span>{item.label}</span>
                 </div>

@@ -95,4 +95,22 @@ describe("MarkdownEditor", () => {
     }
     unmount();
   });
+
+  it("should clean up invalid ARIA attributes and unlabeled textareas created by the editor", async () => {
+    const { container } = render(MarkdownEditor, { props: { value: "x" } });
+    await new Promise((r) => setTimeout(r, 10));
+
+    const host = container.querySelector('[data-testid="markdown-editor-container"]') as HTMLElement;
+    host.innerHTML =
+      '<div class="tab-item" aria-role="tab" aria-selected="true">Write</div><button class="more"></button><button title="Ada judul"></button><textarea class="clip"></textarea><textarea aria-label="Sudah"></textarea>';
+    await new Promise((r) => setTimeout(r, 10));
+
+    const tab = host.querySelector(".tab-item") as HTMLElement;
+    expect(tab.hasAttribute("aria-role")).toBe(false);
+    expect(tab.hasAttribute("aria-selected")).toBe(false);
+    expect(host.querySelector(".clip")?.getAttribute("aria-label")).toBe("Editor Markdown");
+    expect(host.querySelectorAll('textarea[aria-label="Sudah"]').length).toBe(1);
+    expect(host.querySelector(".more")?.getAttribute("aria-label")).toBe("Alat editor lainnya");
+    expect(host.querySelector("button[title]")?.hasAttribute("aria-label")).toBe(false);
+  });
 });

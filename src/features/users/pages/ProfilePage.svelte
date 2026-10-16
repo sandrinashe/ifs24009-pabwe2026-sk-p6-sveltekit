@@ -215,7 +215,7 @@
       <!-- Form Ganti Password -->
       <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-xs space-y-5">
         <div class="flex items-center gap-2.5 pb-2 border-b border-slate-100">
-          <div class="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center">
+          <div class="w-8 h-8 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center">
             <ShieldCheck size={18} />
           </div>
           <h3 class="font-bold text-slate-800">Keamanan & Password</h3>

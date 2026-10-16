@@ -56,15 +56,16 @@
           <PenLine size={18} strokeWidth={2.5} />
         </div>
         <div>
-          <h3 class="text-base font-bold text-slate-800">Ubah Data Kursus</h3>
+          <h2 class="text-base font-bold text-slate-800">Ubah Data Kursus</h2>
           <p class="text-xs text-slate-500">Perbarui judul dan deskripsi kursus</p>
         </div>
       </div>
       <button
         type="button"
         data-testid="close-change-modal-btn"
+          aria-label="Tutup"
         onclick={() => onClose?.()}
-        class="p-2 rounded-xl text-slate-400 hover:text-slate-600 hover:bg-slate-200/60 transition-colors"
+        class="p-2 rounded-xl text-slate-500 hover:text-slate-600 hover:bg-slate-200/60 transition-colors"
       >
         <X size={20} />
       </button>
@@ -74,7 +75,7 @@
       <div class="flex-1 flex flex-col min-h-0 p-6 md:p-8 space-y-4 w-full">
         <div class="shrink-0">
           <label for="change-course-title-input" class="block text-sm font-semibold text-slate-700 mb-1.5">
-            Judul Kursus <span class="text-red-500">*</span>
+            Judul Kursus <span class="text-red-700">*</span>
           </label>
           <input
             id="change-course-title-input"
@@ -87,7 +88,7 @@
 
         <div class="flex-1 flex flex-col min-h-0">
           <span class="block text-sm font-semibold text-slate-700 mb-1.5 shrink-0">
-            Deskripsi (Markdown) <span class="text-red-500">*</span>
+            Deskripsi (Markdown) <span class="text-red-700">*</span>
           </span>
           <div class="flex-1 min-h-[300px]">
             <MarkdownEditor
@@ -113,7 +114,7 @@
           type="submit"
           data-testid="submit-change-modal-btn"
           disabled={loading}
-          class="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-white bg-amber-600 hover:bg-amber-700 active:bg-amber-800 rounded-xl shadow-md shadow-amber-600/25 transition-all disabled:opacity-60"
+          class="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-white bg-amber-700 hover:bg-amber-800 active:bg-amber-900 rounded-xl shadow-md shadow-amber-600/25 transition-all disabled:opacity-60"
         >
           {#if loading}
             <LoaderCircle size={18} class="animate-spin" />

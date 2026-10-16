@@ -47,15 +47,16 @@
           <Plus size={18} strokeWidth={2.5} />
         </div>
         <div>
-          <h3 class="text-base font-bold text-slate-800">Tambah Kursus Baru</h3>
+          <h2 class="text-base font-bold text-slate-800">Tambah Kursus Baru</h2>
           <p class="text-xs text-slate-500">Tuliskan deskripsi kursus dengan format Markdown</p>
         </div>
       </div>
       <button
         type="button"
         data-testid="close-add-modal-btn"
+          aria-label="Tutup"
         onclick={() => onClose?.()}
-        class="p-2 rounded-xl text-slate-400 hover:text-slate-600 hover:bg-slate-200/60 transition-colors"
+        class="p-2 rounded-xl text-slate-500 hover:text-slate-600 hover:bg-slate-200/60 transition-colors"
       >
         <X size={20} />
       </button>
@@ -65,7 +66,7 @@
       <div class="flex-1 flex flex-col min-h-0 p-6 md:p-8 space-y-4 w-full">
         <div class="shrink-0">
           <label for="add-course-title-input" class="block text-sm font-semibold text-slate-700 mb-1.5">
-            Judul Kursus <span class="text-red-500">*</span>
+            Judul Kursus <span class="text-red-700">*</span>
           </label>
           <input
             id="add-course-title-input"
@@ -79,7 +80,7 @@
 
         <div class="flex-1 flex flex-col min-h-0">
           <span class="block text-sm font-semibold text-slate-700 mb-1.5 shrink-0">
-            Deskripsi (Markdown) <span class="text-red-500">*</span>
+            Deskripsi (Markdown) <span class="text-red-700">*</span>
           </span>
           <div class="flex-1 min-h-[300px]">
             <MarkdownEditor

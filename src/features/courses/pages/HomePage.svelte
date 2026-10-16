@@ -86,7 +86,7 @@
 
     <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
       <div class="relative flex-1 max-w-md">
-        <Search size={18} class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
+        <Search size={18} class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500" />
         <input
           type="text"
           data-testid="search-course-input"
@@ -117,12 +117,12 @@
     </div>
 
     {#if loading && filteredCourses.length === 0}
-      <div class="py-16 text-center text-slate-400">
+      <div class="py-16 text-center text-slate-500">
         <LoaderCircle size={36} class="mx-auto text-indigo-600 animate-spin mb-2" />
         <p class="font-medium text-slate-600">Memuat daftar kursus...</p>
       </div>
     {:else if filteredCourses.length === 0}
-      <div class="py-16 text-center text-slate-400">
+      <div class="py-16 text-center text-slate-500">
         <GraduationCap size={40} class="mx-auto text-slate-300 mb-2" />
         <p class="font-medium">Belum ada kursus yang cocok.</p>
       </div>
@@ -150,7 +150,7 @@
                   <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200/60">Terdaftar</span>
                 {/if}
               </div>
-              <h3 class="font-bold text-slate-800 leading-snug line-clamp-2">{course.title}</h3>
+              <h2 class="font-bold text-slate-800 leading-snug line-clamp-2">{course.title}</h2>
               <div class="mt-auto space-y-2 text-xs text-slate-500">
                 <p class="flex items-center gap-1.5">
                   <User size={14} />

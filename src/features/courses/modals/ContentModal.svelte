@@ -64,15 +64,16 @@
           <div class="w-8 h-8 rounded-lg bg-rose-100 text-rose-700 flex items-center justify-center">
             <Video size={18} strokeWidth={2.5} />
           </div>
-          <h3 class="text-base font-bold text-slate-800">
+          <h2 class="text-base font-bold text-slate-800">
             {content ? "Ubah Konten" : "Tambah Konten"}
-          </h3>
+          </h2>
         </div>
         <button
           type="button"
           data-testid="close-content-modal-btn"
+          aria-label="Tutup"
           onclick={() => onClose?.()}
-          class="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
+          class="p-1.5 rounded-lg text-slate-600 hover:text-slate-600 hover:bg-slate-100 transition-colors"
         >
           <X size={18} />
         </button>
@@ -81,7 +82,7 @@
       <form onsubmit={handleSave} class="p-6 space-y-4">
         <div>
           <label for="content-title-input" class="block text-sm font-semibold text-slate-700 mb-1.5">
-            Judul Konten <span class="text-red-500">*</span>
+            Judul Konten <span class="text-red-700">*</span>
           </label>
           <input
             id="content-title-input"
@@ -94,7 +95,7 @@
         </div>
         <div>
           <label for="content-youtube-input" class="block text-sm font-semibold text-slate-700 mb-1.5">
-            Tautan YouTube <span class="text-red-500">*</span>
+            Tautan YouTube <span class="text-red-700">*</span>
           </label>
           <input
             id="content-youtube-input"
