@@ -2,7 +2,8 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import courseApi from "./courseApi";
 import apiHelper from "../../../helpers/apiHelper";
 
-const BASE = "https://open-api.delcom.org/api/v1/courses";
+declare const DELCOM_BASEURL: string;
+const BASE = `${DELCOM_BASEURL}/courses`;
 
 function mockResponse(body: any) {
   return { json: () => Promise.resolve(body) } as Response;
